@@ -1,0 +1,48 @@
+service: meli-shortener-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment: ${file(./.env/serverless.config.yml)}
+    
+  vpc:
+    subnetIds:
+      - ${self:custom.env.SUBNET1}
+      - ${self:custom.env.SUBNET2}
+      - ${self:custom.env.SUBNET3}
+    securityGroupIds:
+      - ${self:custom.env.SECURITY_GROUP}
+
+custom:
+  env: ${file(./.env/serverless.config.yml)}
+  documentation: ${file(./serverless.docs.yml)}
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+  - serverless-openapi-documentation
+
+functions:
+  shortenUrl:
+    handler: ./app/handler.short
+    events:
+      - httpApi:
+          path: /
+          method: post
+  
+  resolveUrl:
+    handler: ./app/handler.resolve
+    events:
+      - httpApi:
+          path: /{id}
+          method: get
+  
+  updateUrl:
+    handler: ./app/handler.update
+    events:
+      - httpApi:
+          path: /{id}
+          method: put
+
+
