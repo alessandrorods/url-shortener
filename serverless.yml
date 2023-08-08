@@ -25,21 +25,21 @@ plugins:
 
 functions:
   shortenUrl:
-    handler: ./app/handler.short
+    handler: ./src/handler.short
     events:
       - httpApi:
           path: /
           method: post
   
   resolveUrl:
-    handler: ./app/handler.resolve
+    handler: ./src/handler.resolve
     events:
       - httpApi:
           path: /{id}
           method: get
   
   updateUrl:
-    handler: ./app/handler.update
+    handler: ./src/handler.update
     events:
       - httpApi:
           path: /{id}
