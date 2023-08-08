@@ -1,10 +1,11 @@
 import { APIGatewayProxyResult } from "aws-lambda"
+import IResponseBuilder from "./IResponseBuilder"
 
 export interface Header {
   [header: string]: string
 }
 
-export default class Response {
+export default class Response implements IResponseBuilder {
   private responseStatusCode: number
   private responseBody: any
   private responseHeaders: Header = {

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="31" failures="0" errors="0" time="19.387">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:12:45" time="13.02" tests="1">
+    <testcase classname=" should create a new instance of UrlModel" name=" should create a new instance of UrlModel" time="0.022">
+    </testcase>
+  </testsuite>
+  <testsuite name="Shortener Service Tests" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:12:58" time="0.486" tests="9">
+    <testcase classname="Shortener Service Tests should test shortUrl function" name="Shortener Service Tests should test shortUrl function" time="0.015">
+    </testcase>
+    <testcase classname="Shortener Service Tests should keep default enabled value when it not exists" name="Shortener Service Tests should keep default enabled value when it not exists" time="0.002">
+    </testcase>
+    <testcase classname="Shortener Service Tests should resolve a URL getting from cache" name="Shortener Service Tests should resolve a URL getting from cache" time="0.001">
+    </testcase>
+    <testcase classname="Shortener Service Tests should throw exception when URL not found" name="Shortener Service Tests should throw exception when URL not found" time="0.002">
+    </testcase>
+    <testcase classname="Shortener Service Tests should throw exception when URL is disabled" name="Shortener Service Tests should throw exception when URL is disabled" time="0.003">
+    </testcase>
+    <testcase classname="Shortener Service Tests should resolve a URL when was not found on cache but found on db" name="Shortener Service Tests should resolve a URL when was not found on cache but found on db" time="0.001">
+    </testcase>
+    <testcase classname="Shortener Service Tests should update a existing url" name="Shortener Service Tests should update a existing url" time="0.003">
+    </testcase>
+    <testcase classname="Shortener Service Tests should update a existing url with default enabled value" name="Shortener Service Tests should update a existing url with default enabled value" time="0.002">
+    </testcase>
+    <testcase classname="Shortener Service Tests should throw exception when URL not found on update" name="Shortener Service Tests should throw exception when URL not found on update" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="Redis Repository tests" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:12:45" time="14.14" tests="2">
+    <testcase classname="Redis Repository tests should save" name="Redis Repository tests should save" time="0.023">
+    </testcase>
+    <testcase classname="Redis Repository tests should get from cache" name="Redis Repository tests should get from cache" time="0.015">
+    </testcase>
+  </testsuite>
+  <testsuite name="Shortener Service Tests" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:12:59" time="1.665" tests="9">
+    <testcase classname="Shortener Service Tests should test shortUrl function" name="Shortener Service Tests should test shortUrl function" time="0.013">
+    </testcase>
+    <testcase classname="Shortener Service Tests should keep default enabled value when it not exists" name="Shortener Service Tests should keep default enabled value when it not exists" time="0.003">
+    </testcase>
+    <testcase classname="Shortener Service Tests should resolve a URL getting from cache" name="Shortener Service Tests should resolve a URL getting from cache" time="0.002">
+    </testcase>
+    <testcase classname="Shortener Service Tests should throw exception when URL not found" name="Shortener Service Tests should throw exception when URL not found" time="0.002">
+    </testcase>
+    <testcase classname="Shortener Service Tests should throw exception when URL is disabled" name="Shortener Service Tests should throw exception when URL is disabled" time="0.002">
+    </testcase>
+    <testcase classname="Shortener Service Tests should resolve a URL when was not found on cache but found on db" name="Shortener Service Tests should resolve a URL when was not found on cache but found on db" time="0.001">
+    </testcase>
+    <testcase classname="Shortener Service Tests should update a existing url" name="Shortener Service Tests should update a existing url" time="0.002">
+    </testcase>
+    <testcase classname="Shortener Service Tests should update a existing url with default enabled value" name="Shortener Service Tests should update a existing url with default enabled value" time="0.002">
+    </testcase>
+    <testcase classname="Shortener Service Tests should throw exception when URL not found on update" name="Shortener Service Tests should throw exception when URL not found on update" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Shortener Controller tests" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:12:59" time="1.627" tests="5">
+    <testcase classname="Shortener Controller tests should create a short URL" name="Shortener Controller tests should create a short URL" time="0.021">
+    </testcase>
+    <testcase classname="Shortener Controller tests should redirect to destination" name="Shortener Controller tests should redirect to destination" time="0.003">
+    </testcase>
+    <testcase classname="Shortener Controller tests should return 404 when short url not exists" name="Shortener Controller tests should return 404 when short url not exists" time="0.003">
+    </testcase>
+    <testcase classname="Shortener Controller tests should update a short URL" name="Shortener Controller tests should update a short URL" time="0.004">
+    </testcase>
+    <testcase classname="Shortener Controller tests should return 404 when a short URL is not found on update" name="Shortener Controller tests should return 404 when a short URL is not found on update" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Response Builder tests" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:13:01" time="0.67" tests="1">
+    <testcase classname="Response Builder tests should parse a response" name="Response Builder tests should parse a response" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="CRC32 Hash Generator" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:13:01" time="0.335" tests="1">
+    <testcase classname="CRC32 Hash Generator should generate a CRC32 hash from URL" name="CRC32 Hash Generator should generate a CRC32 hash from URL" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="Redis Repository tests" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:13:01" time="1.2" tests="2">
+    <testcase classname="Redis Repository tests should save" name="Redis Repository tests should save" time="0.008">
+    </testcase>
+    <testcase classname="Redis Repository tests should get from cache" name="Redis Repository tests should get from cache" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="handler initializer test" errors="0" failures="0" skipped="0" timestamp="2023-08-08T21:12:45" time="17.795" tests="1">
+    <testcase classname="handler initializer test should define controllers" name="handler initializer test should define controllers" time="0.02">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,4 +1,45 @@
-version: '1'
-title: 'My API'
-description: 'This is my API'
-models: {}
+endpoints:
+  shortenUrl:
+    summary: Create short URL
+    description: Generate a new redirect short link for the long destination url
+    requestBody:
+      description: A short URL object
+    requestModels:
+      application/json: PostUrlRequest
+    methodResponses:
+      - statusCode: 201
+        responseBody:
+          description: A shortened URL data
+        responseModels:
+          application/json: UrlModel
+      - statusCode: 404
+
+documentation:
+  version: '1'
+  title: 'shortener-url'
+  description: 'URL Shortener Project for Technical Challenge'
+  models:
+    - name: PostUrlRequest
+      description: The DTO object to create short URL
+      schema:
+        properties:
+          destination:
+            type: string
+          enabled:
+            type: boolean
+    - name: UrlModel
+      description: The URL shortened
+      schema:
+        properties:
+          id:
+            type: string
+          shortenedUrl:
+            type: string
+          destinationUrl:
+            type: string
+          enabled:
+            type: boolean
+          createdAt:
+            type: number
+          updatedAt:
+            type: number

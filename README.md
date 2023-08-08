@@ -1,44 +1,43 @@
-# Encurtador de URL
-Case para Desafio Técnico
+# URL Shortener
+A technical challenge case
 
-## Sumário
-- [Comece por aqui](#comece-por-aqui)
-	- [Outras documentações](#outras-documentacoes)
-	- [Requisitos](#requisitos)
-	- [Instalação](#instalação)
-	- [Configure as variávies de ambiente](#configure-as-variáveis-de-ambiente)
-- [Executando a aplicação localmente](#executando-a-aplicação-localmente)
-- [Testes](#testes)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [O inicializador handlers.ts](#o-inicializador-handlerts)
-- [Algoritmo de Encurtamento](#algoritmo-de-encurtamento)
-- [Deploy](#deployment)
-- [Autor](#autor)
+## Table of Contents
+- [Getting Start](#getting-start)
+	- [Others docs](#others-docs)
+	- [Requirements](#requirements)
+	- [Install](#install)
+	- [Setup environment variables](#setup-environment-variables)
+- [Running application locally](#running-application-locally)
+- [Tests](#tests)
+- [Project Pattern](#project-pattern)
+- [The handler.ts launcher](#the-handlerts-launcher)
+- [Shortening algorithm](#shortening-algorithm)
+- [Deploy](#deploy)
+- [Author](#author)
 
-## Comece por aqui
-Este encurtador de URL utiliza uma arquitetura serverless e é executada através de funções Lambda da AWS. O framework Serverless Framework é um requisito para executar esta aplicação em ambiente local.
+## Getting Start
+Here you will find all the steps to run, test and deploy the url shortener application.
 
-### Outras documentações
-- [Documentação da API](https://link-para-swagger.com)
-- [Documentação da Arquitetura](https://github.com/alessandrorods/meli-shortener-api/blob/main/docs/Architecture.md)
+### Others docs
+- [API Documentation](https://app.swaggerhub.com/apis-docs/ALESSANDRO72/shortener-url-docs/1.0.0)
+- [Architecture Documentation](https://github.com/alessandrorods/url-shortener/wiki)
 
-### Requisitos
-O encurtado utiliza a linguagem NodeJS com o framework Serverless. Você precisará possuir as seguintes instalações:
+### Requirements
+The shortener uses NodeJS with Serverless Framework. You will need the installations bellow:
 
-1. Instalar NodeJS
+1. Install NodeJS
 	* [NodeJS Download](https://nodejs.org/en/download)
-2. Instalar Framework Serverless
+2. Install the Serverless Framework
 	* `npm install -g serverless`
 
-`npm` é um gerenciador de dependências para aplicações que utilizam JavaScript, ele será instalado junto com a instalação do NodeJS, no passo 1.
+`npm` is a dependency manager for JavaScript application, he will be installed with NodeJS installation, on the step 1.
 
-### Instalação
-Para instalar todas as dependências necessárias para a aplicação, basta executar o comando abaixo, no terminal na raiz do projeto:
-`npm install`
+### Install
+To install all project dependecies, just run the command `npm install` on the application root folder.
 
 
-### Configure as variáveis de ambiente
-As variáveis de ambiente estão localizadas no arquivo `./.env/serverless.config.yml` e o conteúdo precisa ser algo parecido com o exemplo abaixo:
+### Setup environment variables
+The environment variables are located on `./.env/serverless.config.yml` and the content need to be like the example below:
 ```
 DYNAMODB_TABLE: DYNAMO-TABLE
 DYNAMODB_REGION: us-east-1
@@ -51,14 +50,14 @@ SUBNET3: SUBNET3-ID
 SECURITY_GROUP: SECURITYGROUP-ID
 SHORTENER_DOMAIN: https://app-base-domain.com
 ```
-Você também pode usar o arquivo de template `serverless.config.example.yml` para configurar as variáveis de ambiente.
+Also are is possible to use the `serverless.config.example.yml` template to setup your environment variables.
 
-## Executando a aplicação localmente
-Após seguir todos os passos acima você estará pronto para executar a aplicação em ambiente local. Para isso, basta executar no terminal o comando abaixo:
-`npm run dev`
+## Running application locally
+After all steps above you will be ready to run application locally.
+Run the command `npm run dev` to start local AWS Lambda endpoints.
 
-O framework Serverless exibirá a lista dos endpoints da aplicação, além dos seus verbos correspondentes.
-Será algo parecido com:
+The Serverless Framework will show the endpoints of application with the HTTP verbs.
+Will be like that:
 ```
    ┌──────────────────────────────────────────────────────────────────────────────┐
    │                                                                              │
@@ -70,37 +69,66 @@ Será algo parecido com:
    │   POST | http://localhost:3000/2015-03-31/functions/updateUrl/invocations    │
    │                                                                              │
    └──────────────────────────────────────────────────────────────────────────────┘
-Para entender mais sobre o comando `serverless-offline`, consulte a documentação nesse [repositório do GitHub](https://github.com/dherault/serverless-offline).
+To know more about `serverless offline`, see these [GitHub repository](https://github.com/dherault/serverless-offline).
 
 ```
 
 
-## Testes
-Para executar os testes unitários, basta executar o comando abaixo no terminal:
+## Tests
+To run the unit tests just run the command at terminal:
 `npm run test`
 
-Um relatório de Coverage vai ser criado no caminho `./coverage/lconv/index.html`
-Abra este arquivo no seu navegador para ter acesso a uma interface com os relatórios de coverage
+The tests results and coverage report will be printed on terminal, but is possible to see detailed coverage per file information. Just open theese file into your browser `./coverage/lcov-report/index.html`
+
+Actually the application have 100% of coverage on tests. Here is a full report of unit tests:
+```
+--------------------------|---------|----------|---------|---------|-------------------
+File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------------|---------|----------|---------|---------|-------------------
+All files                 |     100 |      100 |     100 |     100 |                   
+ src                      |     100 |      100 |     100 |     100 |                   
+  handler.ts              |     100 |      100 |     100 |     100 |                   
+ src/controllers          |     100 |      100 |     100 |     100 | 
+  ShortenerController.ts  |     100 |      100 |     100 |     100 | 
+ src/models               |     100 |      100 |     100 |     100 | 
+  UrlModel.ts             |     100 |      100 |     100 |     100 | 
+ src/repositories         |     100 |      100 |     100 |     100 | 
+  DynamoDBRepository.ts   |     100 |      100 |     100 |     100 | 
+  RedisRepository.ts      |     100 |      100 |     100 |     100 | 
+ src/services             |     100 |      100 |     100 |     100 | 
+  ShortenerService.ts     |     100 |      100 |     100 |     100 | 
+ src/utils                |     100 |      100 |     100 |     100 | 
+  Crc32HashGenerator.ts   |     100 |      100 |     100 |     100 | 
+  ResponseBuilder.ts      |     100 |      100 |     100 |     100 | 
+  ShortIdHashGenerator.ts |     100 |      100 |     100 |     100 |
+--------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 9 passed, 9 total
+Tests:       31 passed, 31 total
+Snapshots:   0 total
+Time:        32.691 s
+Ran all test suites.
+```
 
 
-## Estrutura do Projeto
-Toda a aplicação está estruturada com Service Pattern e Repository Pattern. Todas as camadas e regras de negócio ficam nos services e a conexão com recursos de infra ficam nos repositories.
+## Project Pattern
+The application is structured using Service Pattern and Repository Pattern. All business layers was into services and the database connection and infra resources was into repositories.
 ```
 - src
 	- controllers
 	- services
 	- repositories
 ```
-* `controllers`: São as classes responsáveis por conectar a request com as regras de negócio da aplicação
-* `services`: Nos services há somente a regra de negócio e não tem acesso direto ao banco de dados.
-* `repositories`: Onde os dados são obtidos e/ou armazenados no banco de dados, não há regra de negócio.
+* `controllers`: Have responsability to connect the HTTP request data with business rules layers on the services. Controllers never had a connection with external resources, like databases or queues.
+* `services`: Have responsability to keep and execute all business rules, and connect with repositories to access external layers of infrastructure.
+* `repositories`: Have responsability to receive and store data into infrastructure resources like caches and databases. Business rules don't appear on repositories.
 
-Também existem as seguintes pastas na estrutura do projeto:
-* `dtos`: Os DTOs (Data-Transfer-Objects) determinam o padrão dos dados que vão ser transitados na camada do Controller
-* `models`: Os objetos de domínio transitados pela aplicação entre Repository e Service. Também são chamados de Entity (entidades).
-* `utils`: Classes de utilidades no geral
+The following folders are also present on project structure:
+* `dtos`: The DTOs (Data-Transfer-Objects) set the data pattern that will be used on the Controllers
+* `models`: Are the domain objects used into Repository and Service data transfer. Are also called Entity.
+* `utils`: General use classes, like helpers, parsers or others.
 
-A estrutura final do projeto fica da seguinte forma:
+The final project structure is the following:
 ```
 - src
 	- controllers
@@ -111,9 +139,9 @@ A estrutura final do projeto fica da seguinte forma:
 	- utils
 ```
 
-## O inicializador handler.ts
-O framework Serverless não possui suporte nativo a OOP, por isso é necessário utilizar o arquivo `handler.ts` para gerenciar manualmente as instâncias de classes e injeções de dependências do projeto.
-Este arquivo atua como um ponto focal da aplicação, inicializando os todos os endpoints.
+## The handler.ts launcher
+The Serverless Framework does no have native support to OOP, so it is necessary to use the `handler.ts` file as launcher to manually manage the object instances and dependencies injection.
+This file acts are a entry-point of application, launching all endpoints.
 
 ```typescript
 ...
@@ -123,11 +151,11 @@ export const short = async (event: APIGatewayProxyEvent): Promise<APIGatewayProx
 	return await shortenerController.short(event)
 };
 ```
-No exemplo acima, o inicializador instancia a classe `ShortenerController` e define uma função `short()` que será utilizada como ponto de entrada pelo framework Serverless.
+On example above, the initializer create a new instance of `ShortenerController` and use it on the `short()` function that will be user as a entry-point from the Serverless Framework.
 
-Também é realizada a injeção das dependências das classes `ShortenerService` e `ResponseBuilder`, estas classes também foram instanciadas no arquivo `handler.ts`.
+Is also performed the dependency injection of the objects `ShortenerService` and `ResponseBuilder`, these classes were also instantiated in the `handler.ts` file.
 
-Nas configurações do framework teremos a declaração do endpoint, apontando para a função `short()`, como no exemplo abaixo:
+On the `serverless.yml` configuration file the function of the endpoint to shorten url point to function at `./src/handler.short` to be the lambda handler.
 ```yml
 ...
 functions:
@@ -139,18 +167,38 @@ functions:
           method: post
 ```
 
-## Algoritmo de encurtamento
-...
+## Shortening algorithm
+Some alternatives are possible to generate the a short code for each URL. The main question about shortening algorithm is the collision probability, that can be generate a existing code.
+
+The algorithm uses a library called nanoid that have a smaller probability of duplicate IDs.
+Using a short ID with 10 bytes, and generating 1000 short URLs per hour, we have:
+
+```
+~17 years or 152M IDs needed, in order to have a 1% probability of at least one collision.
+```
+*Simulation from the [Nano ID Collision Calculator](https://zelark.github.io/nano-id-cc/)*
+
+### onCollision event _(a nice to have insight)_
+Sometime a collision will occours! A *nice-to-have* solution will be a onCollision retry event, to generate a another *nanoid* ID now using 11 bytes.
+With a length of 11 characters and generating 1000 short URLs per hour, the collision probability have a decrease:
+```
+~139 years or 1B IDs needed, in order to have a 1% probability of at least one collision.
+```
+*Simulation from the [Nano ID Collision Calculator](https://zelark.github.io/nano-id-cc/)*
+
+### Same ID for same URL _(another nice to have insight)_
+Another solution to reduce collision probability is use of same short ID when the exact destination was existing on the database.
+For that will be needed check if destination is existing into database before generate the short ID, and if exists just use the existing short ID.
 
 ## Deploy
-Para realizar o deploy da aplicação na AWS, basta utilizar o comando `serverless deploy`.
+To deploy the application on AWS just run `serverless deploy` on terminal.
 
-As (credenciais AWS)[https://serverless.com/framework/docs/providers/aws/guide/credentials/] precisam estar configuradas corretamente no seu ambiente de desenvolvimento local para o deploy funcionar.
+The (AWS Credentials)[https://serverless.com/framework/docs/providers/aws/guide/credentials/] need be corretly setup on your local environment to deploy works.
 
-Para mais informações sobre deploy, consulte na [documentação do Framework Serverless](https://www.serverless.com/framework/docs/providers/aws/cli-reference/deploy).
+For more information, check the [Serverless Framework deploy documentation](https://www.serverless.com/framework/docs/providers/aws/cli-reference/deploy).
 
 
-## Autor
+## Author
 Alessandro Rodrigues dos Santos
 * [GitHub](https://github.com/alessandrorods)
 * [LinkedIn](https://linkedin.com/in/alessandrorods)

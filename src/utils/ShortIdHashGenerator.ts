@@ -1,9 +1,10 @@
 import ShortUniqueId from "short-unique-id";
+import { nanoid } from 'nanoid'
 import IHashGenerator from "./IHashGenerator";
 
 export default class ShortIdHashGenerator implements IHashGenerator {
-  public generate(destinationUrl: string): string {
-    const uid = new ShortUniqueId({ length: 10 });
-    return uid();
+  public generate(): string {
+    const uid = nanoid(10);
+    return uid;
   }
 }

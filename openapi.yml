@@ -1,9 +1,29 @@
 openapi: 3.0.0
 components:
-  schemas: {}
+  schemas:
+    PostUrlRequest:
+      properties:
+        destination:
+          type: string
+        enabled:
+          type: boolean
+    UrlModel:
+      properties:
+        id:
+          type: string
+        shortenedUrl:
+          type: string
+        destinationUrl:
+          type: string
+        enabled:
+          type: boolean
+        createdAt:
+          type: number
+        updatedAt:
+          type: number
   securitySchemes: {}
 info:
-  title: My API
-  description: This is my API
+  title: shortener-url
+  description: URL Shortener Project for Technical Challenge
   version: '1'
 paths: {}

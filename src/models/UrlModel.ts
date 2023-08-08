@@ -25,14 +25,8 @@ export default class UrlModel {
   public getEnabled() { return this.enabled }
   public getCreatedAt() { return this.createdAt }
   public getUpdatedAt() { return this.updatedAt }
-  public getShortenedUrl() { return this.shortenedUrl }
 
-  public setId(id: string) { this.id = id }
-  public setDestinationUrl(destinationUrl: string) { this.destinationUrl = destinationUrl }
-  public setEnabled(enabled: boolean) { this.enabled = enabled }
-  public setCreatedAt(createdAt: number) { this.createdAt = createdAt }
-  public setUpdatedAt(updatedAt: number) { this.updatedAt = updatedAt }
   public setShortenedUrl() {
-    this.shortenedUrl = `http://${process.env.SHORTENER_DOMAIN}/${this.id}`
+    this.shortenedUrl = `${process.env.SHORTENER_DOMAIN}/${this.id}`
   }
 }

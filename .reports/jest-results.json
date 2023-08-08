@@ -1,0 +1,749 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 9,
+  "numPassedTests": 31,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 9,
+  "numTotalTests": 31,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1691529164431,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529178555,
+        "runtime": 13020,
+        "slow": true,
+        "start": 1691529165535
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\tests\\models\\UrlMode.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [],
+          "duration": 22,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "should create a new instance of UrlModel",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 5,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should create a new instance of UrlModel"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 9,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529179152,
+        "runtime": 486,
+        "slow": false,
+        "start": 1691529178666
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\.build\\tests\\services\\ShortenerService.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 15,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should test shortUrl function",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should test shortUrl function"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should keep default enabled value when it not exists",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should keep default enabled value when it not exists"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should resolve a URL getting from cache",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should resolve a URL getting from cache"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should throw exception when URL not found",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw exception when URL not found"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should throw exception when URL is disabled",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw exception when URL is disabled"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should resolve a URL when was not found on cache but found on db",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should resolve a URL when was not found on cache but found on db"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should update a existing url",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 3,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should update a existing url"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should update a existing url with default enabled value",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should update a existing url with default enabled value"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should throw exception when URL not found on update",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw exception when URL not found on update"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529179718,
+        "runtime": 14140,
+        "slow": true,
+        "start": 1691529165578
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\tests\\repositories\\DynamoDBRepository.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Redis Repository tests"
+          ],
+          "duration": 23,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Redis Repository tests should save",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should save"
+        },
+        {
+          "ancestorTitles": [
+            "Redis Repository tests"
+          ],
+          "duration": 15,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Redis Repository tests should get from cache",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should get from cache"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 9,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529180956,
+        "runtime": 1665,
+        "slow": false,
+        "start": 1691529179291
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\tests\\services\\ShortenerService.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 13,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should test shortUrl function",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should test shortUrl function"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should keep default enabled value when it not exists",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should keep default enabled value when it not exists"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should resolve a URL getting from cache",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should resolve a URL getting from cache"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should throw exception when URL not found",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw exception when URL not found"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should throw exception when URL is disabled",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw exception when URL is disabled"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should resolve a URL when was not found on cache but found on db",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should resolve a URL when was not found on cache but found on db"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should update a existing url",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 3,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should update a existing url"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should update a existing url with default enabled value",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should update a existing url with default enabled value"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Service Tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Service Tests should throw exception when URL not found on update",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw exception when URL not found on update"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 5,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529181462,
+        "runtime": 1627,
+        "slow": false,
+        "start": 1691529179835
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\tests\\controllers\\ShortenerController.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Shortener Controller tests"
+          ],
+          "duration": 21,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Controller tests should create a short URL",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should create a short URL"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Controller tests"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Controller tests should redirect to destination",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should redirect to destination"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Controller tests"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Controller tests should return 404 when short url not exists",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should return 404 when short url not exists"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Controller tests"
+          ],
+          "duration": 4,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Controller tests should update a short URL",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 3,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should update a short URL"
+        },
+        {
+          "ancestorTitles": [
+            "Shortener Controller tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Shortener Controller tests should return 404 when a short URL is not found on update",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should return 404 when a short URL is not found on update"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529181722,
+        "runtime": 670,
+        "slow": false,
+        "start": 1691529181052
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\tests\\utils\\ResponseBuilder.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Response Builder tests"
+          ],
+          "duration": 10,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Response Builder tests should parse a response",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should parse a response"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529182198,
+        "runtime": 335,
+        "slow": false,
+        "start": 1691529181863
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\tests\\utils\\Crc32HashGenerator.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "CRC32 Hash Generator"
+          ],
+          "duration": 4,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "CRC32 Hash Generator should generate a CRC32 hash from URL",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should generate a CRC32 hash from URL"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529182826,
+        "runtime": 1200,
+        "slow": false,
+        "start": 1691529181626
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\tests\\repositories\\RedisRepository.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Redis Repository tests"
+          ],
+          "duration": 8,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Redis Repository tests should save",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should save"
+        },
+        {
+          "ancestorTitles": [
+            "Redis Repository tests"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Redis Repository tests should get from cache",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should get from cache"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1691529183355,
+        "runtime": 17795,
+        "slow": true,
+        "start": 1691529165560
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\meli-desafio\\meli-shortener-api\\tests\\handler.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "handler initializer test"
+          ],
+          "duration": 20,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "handler initializer test should define controllers",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 3,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should define controllers"
+        }
+      ],
+      "failureMessage": null
+    }
+  ],
+  "wasInterrupted": false
+}

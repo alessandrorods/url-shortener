@@ -1,3 +1,4 @@
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import ShortenUrlRequestDto from "../dtos/ShortenUrlRequestDto";
 import IShortenerService from "../services/IShortenerService";
 import IResponseBuilder from "../utils/IResponseBuilder";
@@ -9,21 +10,21 @@ export default class ShortenerController {
     private responseBuilder: IResponseBuilder
   ) { }
 
-  async short(event: any) {
+  async short(event: APIGatewayProxyEvent) {
     const shortenRequest: ShortenUrlRequestDto = JSON.parse(event.body)
     const shortedUrl = await this.shortenerService.short(shortenRequest)
     return this.responseBuilder
-      .status(200)
+      .status(201)
       .body(shortedUrl)
       .build()
   }
 
-  async resolve(event: any) {
+  async resolve(event: APIGatewayProxyEvent) {
     try {
       const id = event.pathParameters.id
       const resolvedUrl = await this.shortenerService.resolve(id)
       return this.responseBuilder
-        .status(301)
+        .status(302)
         .headers({
           Location: resolvedUrl.getDestinationUrl()
         })
@@ -32,11 +33,12 @@ export default class ShortenerController {
     catch (e) {
       return this.responseBuilder
         .status(404)
+        .body({ error: e.message })
         .build()
     }
   }
 
-  async update(event: any) {
+  async update(event: APIGatewayProxyEvent) {
     try {
       const id = event.pathParameters.id
       const shortenRequest: ShortenUrlRequestDto = JSON.parse(event.body)
@@ -49,6 +51,7 @@ export default class ShortenerController {
     catch (e) {
       return this.responseBuilder
         .status(404)
+        .body({ error: e.message })
         .build()
     }
   }

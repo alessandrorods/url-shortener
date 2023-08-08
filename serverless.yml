@@ -26,6 +26,7 @@ plugins:
 functions:
   shortenUrl:
     handler: ./src/handler.short
+    timeout: 30
     events:
       - httpApi:
           path: /

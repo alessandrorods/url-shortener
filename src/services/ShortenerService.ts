@@ -15,7 +15,7 @@ export default class ShortenerService implements IShortenerService {
   async short(shortenRequest: ShortenUrlRequestDto): Promise<UrlModel> {
     const timezone = new Date().getTime()
     const urlData = new UrlModel(
-      this.hashGenerator.generate(shortenRequest.destination),
+      this.hashGenerator.generate(),
       shortenRequest.destination,
       shortenRequest.enabled ?? true,
       timezone,
@@ -23,7 +23,7 @@ export default class ShortenerService implements IShortenerService {
     )
 
     await this.dbRepository.save(urlData)
-    await this.cacheRepository.save(urlData)
+    this.cacheRepository.save(urlData)
 
     urlData.setShortenedUrl()
 
@@ -31,16 +31,15 @@ export default class ShortenerService implements IShortenerService {
   }
 
   async resolve(shortId: string): Promise<UrlModel> {
-
     try {
       const urlFromCache = await this.cacheRepository.getById(shortId)
-      if (!urlFromCache.getEnabled()) throw new Error()
+      if (!urlFromCache.getEnabled()) throw new Error('URL is disabled')
       return urlFromCache
     }
     catch (e) {
       const urlFromDB = await this.dbRepository.getById(shortId)
-      if (!urlFromDB.getEnabled()) throw new Error()
-      await this.cacheRepository.save(urlFromDB)
+      if (!urlFromDB.getEnabled()) throw new Error('URL is disabled')
+      this.cacheRepository.save(urlFromDB)
       return urlFromDB
     }
   }
@@ -48,13 +47,12 @@ export default class ShortenerService implements IShortenerService {
   async update(shortId: string, shortenRequest: ShortenUrlRequestDto): Promise<UrlModel> {
 
     const currentUrl = await this.dbRepository.getById(shortId)
-    if (!currentUrl) throw new Error()
 
     const timezone = new Date().getTime()
     const urlData = new UrlModel(
       shortId,
       shortenRequest.destination,
-      shortenRequest.enabled ?? true,
+      shortenRequest.enabled ?? currentUrl.getEnabled(),
       currentUrl.getCreatedAt(),
       timezone
     )
