@@ -4,16 +4,14 @@ Case para Desafio Técnico
 ## Sumário
 - [Comece por aqui](#comece-por-aqui)
 	- [Requisitos](#requisitos)
-	- [Instalação](#instalacao)
-	- [Configure as variávies de ambiente](#configure-as-variaveis-de-ambiente)
-- [Development](#development)
-    - [Part 1: Heading](#part-1-heading)
-	  - [Step 1: Subheading](#step-1-subheading)
-	  - [Step 2: Subheading](#step-2-subheading)
-	- [Part 2: Heading](#part-2-heading)
-- [Running the App](#running-the-app)
-- [Deployment](#deployment)
-- [Author](#author)
+	- [Instalação](#instalação)
+	- [Configure as variávies de ambiente](#configure-as-variáveis-de-ambiente)
+- [Executando a aplicação localmente](#executando-a-aplicação-localmente)
+- [Testes](#testes)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [O inicializador handlers.ts](#o-inicializador-handlerts)
+- [Deploy](#deployment)
+- [Autor](#autor)
 
 ## Comece por aqui
 Este encurtador de URL utiliza uma arquitetura serverless e é executada através de funções Lambda da AWS. O framework Serverless Framework é um requisito para executar esta aplicação em ambiente local.
@@ -75,7 +73,7 @@ Para entender mais sobre o comando `serverless-offline`, consulte a documentaç�
 ```
 
 
-### Testes
+## Testes
 Para executar os testes unitários, basta executar o comando abaixo no terminal:
 `npm run test`
 
@@ -96,7 +94,31 @@ Toda a aplicação está estruturada com Service Pattern e Repository Pattern. T
 O framework Serverless não possui suporte nativo a OOP, por isso é necessário utilizar o arquivo `handler.ts` para gerenciar manualmente as instâncias de classes e injeções de dependências do projeto.
 Este arquivo atua como um ponto focal da aplicação, inicializando os todos os endpoints.
 
-## Deployment
+```typescript
+	...
+	const shortenerController = new ShortenerController(shortenerService, responseBuilder);
+
+	export const short = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+		return await shortenerController.short(event)
+	};
+```
+No exemplo acima, o inicializador instancia a classe `ShortenerController` e define uma função `short()` que será utilizada como ponto de entrada pelo framework Serverless.
+
+Também é realizada a injeção das dependências das classes `ShortenerService` e `ResponseBuilder`, estas classes também foram instanciadas no arquivo `handler.ts`.
+
+Nas configurações do framework teremos a declaração do endpoint, apontando para a função `short()`:
+```yml
+...
+functions:
+  shortenUrl:
+    handler: ./src/handler.short
+    events:
+      - httpApi:
+          path: /
+          method: post
+```
+
+## Deploy
 Para realizar o deploy da aplicação na AWS, basta utilizar o comando `serverless deploy`.
 
 As (credenciais AWS)[https://serverless.com/framework/docs/providers/aws/guide/credentials/] precisam estar configuradas corretamente no seu ambiente de desenvolvimento local para o deploy funcionar.
