@@ -3,6 +3,7 @@ Case para Desafio Técnico
 
 ## Sumário
 - [Comece por aqui](#comece-por-aqui)
+	- [Outras documentações](#outras-documentacoes)
 	- [Requisitos](#requisitos)
 	- [Instalação](#instalação)
 	- [Configure as variávies de ambiente](#configure-as-variáveis-de-ambiente)
@@ -16,9 +17,9 @@ Case para Desafio Técnico
 ## Comece por aqui
 Este encurtador de URL utiliza uma arquitetura serverless e é executada através de funções Lambda da AWS. O framework Serverless Framework é um requisito para executar esta aplicação em ambiente local.
 
-### Veja também
-	* [Documentação da API](https://link-para-swagger.com)
-	* [Documentação da Arquitetura](https://github.com/alessandrorods/meli-shortener-api/blob/main/docs/Architecture.md)
+### Outras documentações
+- [Documentação da API](https://link-para-swagger.com)
+- [Documentação da Arquitetura](https://github.com/alessandrorods/meli-shortener-api/blob/main/docs/Architecture.md)
 
 ### Requisitos
 O encurtado utiliza a linguagem NodeJS com o framework Serverless. Você precisará possuir as seguintes instalações:
