@@ -84,10 +84,29 @@ Abra este arquivo no seu navegador para ter acesso a uma interface com os relat�
 ## Estrutura do Projeto
 Toda a aplicação está estruturada com Service Pattern e Repository Pattern. Todas as camadas e regras de negócio ficam nos services e a conexão com recursos de infra ficam nos repositories.
 ```
-	- src
-		- controllers
-		- services
-		- repositories
+- src
+	- controllers
+	- services
+	- repositories
+```
+* `controllers`: São as classes responsáveis por conectar a request com as regras de negócio da aplicação
+* `services`: Nos services há somente a regra de negócio e não tem acesso direto ao banco de dados.
+* `repositories`: Onde os dados são obtidos e/ou armazenados no banco de dados, não há regra de negócio.
+
+Também existem as seguintes pastas na estrutura do projeto:
+* `dtos`: Os DTOs (Data-Transfer-Objects) determinam o padrão dos dados que vão ser transitados na camada do Controller
+* `models`: Os objetos de domínio transitados pela aplicação entre Repository e Service. Também são chamados de Entity (entidades).
+* `utils`: Classes de utilidades no geral
+
+A estrutura final do projeto fica da seguinte forma:
+```
+- src
+	- controllers
+	- dtos
+	- models
+	- repositories
+	- services
+	- utils
 ```
 
 ## O inicializador handler.ts
@@ -95,18 +114,18 @@ O framework Serverless não possui suporte nativo a OOP, por isso é necessário
 Este arquivo atua como um ponto focal da aplicação, inicializando os todos os endpoints.
 
 ```typescript
-	...
-	const shortenerController = new ShortenerController(shortenerService, responseBuilder);
+...
+const shortenerController = new ShortenerController(shortenerService, responseBuilder);
 
-	export const short = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-		return await shortenerController.short(event)
-	};
+export const short = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+	return await shortenerController.short(event)
+};
 ```
 No exemplo acima, o inicializador instancia a classe `ShortenerController` e define uma função `short()` que será utilizada como ponto de entrada pelo framework Serverless.
 
 Também é realizada a injeção das dependências das classes `ShortenerService` e `ResponseBuilder`, estas classes também foram instanciadas no arquivo `handler.ts`.
 
-Nas configurações do framework teremos a declaração do endpoint, apontando para a função `short()`:
+Nas configurações do framework teremos a declaração do endpoint, apontando para a função `short()`, como no exemplo abaixo:
 ```yml
 ...
 functions:
