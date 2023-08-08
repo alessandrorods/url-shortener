@@ -11,6 +11,7 @@ Case para Desafio Técnico
 - [Testes](#testes)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [O inicializador handlers.ts](#o-inicializador-handlerts)
+- [Algoritmo de Encurtamento](#algoritmo-de-encurtamento)
 - [Deploy](#deployment)
 - [Autor](#autor)
 
@@ -137,6 +138,9 @@ functions:
           path: /
           method: post
 ```
+
+## Algoritmo de encurtamento
+...
 
 ## Deploy
 Para realizar o deploy da aplicação na AWS, basta utilizar o comando `serverless deploy`.
