@@ -4,7 +4,6 @@ import IShortenerRepository from "./IShortenerRepository";
 
 export default class RedisRepository implements IShortenerRepository {
   private redis: Redis
-  private expirationTimestamp: number
 
   constructor() {
     const redis = new Redis(parseInt(process.env.REDIS_PORT), process.env.REDIS_HOST, {
@@ -12,17 +11,16 @@ export default class RedisRepository implements IShortenerRepository {
     });
 
     this.redis = redis;
-    this.expirationTimestamp = (new Date().getTime() / 1000) + parseInt(process.env.REDIS_TTL_SECONDS)
   }
 
   async save(url: UrlModel) {
     await this.redis.set(`${url.getId()}`, JSON.stringify(url))
-    this.redis.expireat(`${url.getId()}`, this.expirationTimestamp)
+    this.redis.expire(`${url.getId()}`, process.env.REDIS_TTL_SECONDS)
   }
 
   async getById(id: string): Promise<UrlModel> {
     const redisResponse = await this.redis.get(`${id}`)
-    this.redis.expireat(`${id}`, this.expirationTimestamp + parseInt(process.env.REDIS_TTL_SECONDS))
+    this.redis.expire(`${id}`, process.env.REDIS_TTL_SECONDS)
     const urlData = JSON.parse(redisResponse)
 
     return new UrlModel(

@@ -23,7 +23,7 @@ export default class ShortenerService implements IShortenerService {
     )
 
     await this.dbRepository.save(urlData)
-    this.cacheRepository.save(urlData)
+    await this.cacheRepository.save(urlData)
 
     urlData.setShortenedUrl()
 
