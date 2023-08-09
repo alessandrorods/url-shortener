@@ -37,7 +37,7 @@ To install all project dependecies, just run the command `npm install` on the ap
 
 
 ### Setup environment variables
-The environment variables are located on `./.env/serverless.config.yml` and the content need to be like the example below:
+The environment variables are located on `./.env/serverless.config.yml` file and the content need to be like the example below:
 ```
 DYNAMODB_TABLE: DYNAMO-TABLE
 DYNAMODB_REGION: us-east-1
@@ -50,7 +50,7 @@ SUBNET3: SUBNET3-ID
 SECURITY_GROUP: SECURITYGROUP-ID
 SHORTENER_DOMAIN: https://app-base-domain.com
 ```
-Also are is possible to use the `serverless.config.example.yml` template to setup your environment variables.
+Also are is possible to use the `serverless.config.example.yml`file template to setup your environment variables.
 
 ## Running application locally
 After all steps above you will be ready to run application locally.
@@ -69,9 +69,8 @@ Will be like that:
    │   POST | http://localhost:3000/2015-03-31/functions/updateUrl/invocations    │
    │                                                                              │
    └──────────────────────────────────────────────────────────────────────────────┘
-To know more about `serverless offline`, see these [GitHub repository](https://github.com/dherault/serverless-offline).
-
 ```
+To know more about `serverless offline`, see these [GitHub repository](https://github.com/dherault/serverless-offline).
 
 
 ## Tests
@@ -151,7 +150,7 @@ export const short = async (event: APIGatewayProxyEvent): Promise<APIGatewayProx
 	return await shortenerController.short(event)
 };
 ```
-On example above, the initializer create a new instance of `ShortenerController` and use it on the `short()` function that will be user as a entry-point from the Serverless Framework.
+On example above, the initializer create a new instance of `ShortenerController` and use it on the `short()` function that will be used as a entry-point from the Serverless Framework.
 
 Is also performed the dependency injection of the objects `ShortenerService` and `ResponseBuilder`, these classes were also instantiated in the `handler.ts` file.
 
@@ -168,10 +167,10 @@ functions:
 ```
 
 ## Shortening algorithm
-Some alternatives are possible to generate the a short code for each URL. The main question about shortening algorithm is the collision probability, that can be generate a existing code.
+Some alternatives are possible to generate a short code for each URL. The main question about shortening algorithm is the collision probability. A collision occours when algoritm generates a existing code, it will be made a conflict into url resolution.
 
-The algorithm uses a library called nanoid that have a smaller probability of duplicate IDs.
-Using a short ID with 10 bytes, and generating 1000 short URLs per hour, we have:
+On this application, shortening algorithm uses a library called [nanoid](https://www.npmjs.com/package/nanoid) that have a smaller probability of duplicate IDs.
+For example, using a short ID with 10 characters and generating 1000 short URLs per hour, we have the following collision probability:
 
 ```
 ~17 years or 152M IDs needed, in order to have a 1% probability of at least one collision.
@@ -179,8 +178,8 @@ Using a short ID with 10 bytes, and generating 1000 short URLs per hour, we have
 *Simulation from the [Nano ID Collision Calculator](https://zelark.github.io/nano-id-cc/)*
 
 ### onCollision event _(a nice to have insight)_
-Sometime a collision will occours! A *nice-to-have* solution will be a onCollision retry event, to generate a another *nanoid* ID now using 11 bytes.
-With a length of 11 characters and generating 1000 short URLs per hour, the collision probability have a decrease:
+Sometime a collision will occours! A *nice-to-have* solution can be a onCollision retry event, to generate a another [nanoid](https://www.npmjs.com/package/nanoid) now using 11 characters.
+With a length of 11 characters and generating 1000 short URLs per hour, the collision probability have a big decrease:
 ```
 ~139 years or 1B IDs needed, in order to have a 1% probability of at least one collision.
 ```
