@@ -1,11 +1,10 @@
 
-import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 import ShortenerController from './controllers/ShortenerController';
 import ShortenerService from './services/ShortenerService';
 import ResponseBuilder from './utils/ResponseBuilder';
 import DynamoDBRepository from './repositories/DynamoDBRepository';
-import Crc32HashGenerator from './utils/Crc32HashGenerator';
 import ShortIdHashGenerator from './utils/ShortIdHashGenerator';
 import RedisRepository from './repositories/RedisRepository';
 

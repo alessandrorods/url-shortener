@@ -24,10 +24,10 @@ export default class ShortenerController {
       const id = event.pathParameters.id
       const resolvedUrl = await this.shortenerService.resolve(id)
       return this.responseBuilder
-        .status(302)
-        .headers({
-          Location: resolvedUrl.getDestinationUrl()
-        })
+        .status(200)
+        // .headers({
+        //   Location: resolvedUrl.getDestinationUrl()
+        // })
         .build()
     }
     catch (e) {
